@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly View - Expense Tracker</title>
+    
+    <meta name="description" content="View your monthly expense and income reports with detailed breakdowns.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="monthly-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="user-header">
+            <div class="user-info">
+                <button class="icon-btn" onclick="window.location.href='index.html'" title="Back to Dashboard">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <span id="user-name" class="user-name">User</span>
+            </div>
+            <button id="logout-btn" class="logout-btn" title="Logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+
+        <h1><i class="fas fa-calendar-alt"></i> Monthly View</h1>
+
+        <!-- Billing Cycle Settings -->
+        <div class="billing-cycle-card">
+            <h3>Billing Cycle Settings</h3>
+            <div class="cycle-info">
+                <p>Current Cycle: <strong id="current-cycle">1st to 1st of every month</strong></p>
+                <button id="change-cycle-btn" class="btn-secondary">
+                    <i class="fas fa-cog"></i> Change Cycle
+                </button>
+            </div>
+            
+            <!-- Cycle Settings Form (Hidden by default) -->
+            <div id="cycle-settings" class="cycle-settings" style="display: none;">
+                <label for="cycle-start-date">Billing Cycle Start Date:</label>
+                <select id="cycle-start-date">
+                    <option value="1">1st of every month</option>
+                    <option value="5">5th of every month</option>
+                    <option value="10">10th of every month</option>
+                    <option value="15">15th of every month</option>
+                    <option value="20">20th of every month</option>
+                    <option value="25">25th of every month</option>
+                </select>
+                <div class="cycle-actions">
+                    <button id="save-cycle-btn" class="btn">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                    <button id="cancel-cycle-btn" class="btn-secondary">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Month Summary -->
+        <div class="current-month-summary">
+            <h3>Current Period</h3>
+            <div class="period-info">
+                <p id="period-range">Loading...</p>
+            </div>
+            <div class="inc-exp-container">
+                <div>
+                    <h4>Income</h4>
+                    <p id="current-income" class="money plus">+₹0.00</p>
+                </div>
+                <div>
+                    <h4>Expense</h4>
+                    <p id="current-expense" class="money minus">-₹0.00</p>
+                </div>
+            </div>
+            <div class="balance">
+                <h3>Balance</h3>
+                <h2 id="current-balance">₹0.00</h2>
+            </div>
+        </div>
+
+        <!-- Monthly List -->
+        <h3>All Months</h3>
+        <div id="monthly-list" class="monthly-list">
+            <!-- Month cards will be added here -->
+        </div>
+        
+        <p id="no-data" class="no-transactions" style="display: none;">No transaction data available</p>
+        
+        <!-- Copyright Footer -->
+        <footer class="app-footer">
+            <p>© 2025 Hemanth.</p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Loading data...</p>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- Monthly View Logic -->
+    <script src="monthly-view.js"></script>
+    
+</body>
+</html>

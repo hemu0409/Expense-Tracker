@@ -1,0 +1,26 @@
+# Firebase Configuration (contains sensitive API keys)
+# IMPORTANT: Never commit your actual Firebase credentials to public repositories
+# firebase-config.js
+
+# If you want to share your code publicly, create a template file instead:
+# firebase-config.template.js
+
+# Node modules (if you add any build tools later)
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*~

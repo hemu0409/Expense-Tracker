@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Expense Tracker</title>
+    
+    <meta name="description" content="Login to your Expense Tracker account to manage your finances.">
+    
+    <link rel="stylesheet" href="auth-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <i class="fas fa-wallet"></i>
+                <h1>Expense Tracker</h1>
+                <p>Track your expenses in Indian Rupees</p>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form">
+                <h2>Welcome Back!</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login-email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+
+                <p class="switch-form">
+                    Don't have an account? <a href="#" id="show-signup">Sign up</a>
+                </p>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-form" class="auth-form" style="display: none;">
+                <h2>Create Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signup-name">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <input type="text" id="signup-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="signup-password" placeholder="Create a password (min 6 characters)" required minlength="6">
+                    </div>
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-user-plus"></i> Sign Up
+                    </button>
+                </form>
+
+                <p class="switch-form">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </p>
+            </div>
+
+            <!-- Error/Success Messages -->
+            <div id="auth-message" class="auth-message" style="display: none;"></div>
+            
+            <!-- Copyright Footer -->
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: rgba(255,255,255,0.7); font-size: 13px; margin: 0;">© 2025 Hemanth.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- Auth Logic -->
+    <script src="auth.js"></script>
+    
+</body>
+</html>

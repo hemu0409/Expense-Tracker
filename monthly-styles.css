@@ -1,0 +1,288 @@
+.billing-cycle-card {
+  background: #212121;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.billing-cycle-card:hover {
+  border-color: #3d3d3d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cycle-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cycle-info p {
+  color: #e3e3e3;
+  margin: 0;
+}
+
+.cycle-info strong {
+  color: #3b82f6;
+}
+
+.btn-secondary {
+  padding: 12px 20px;
+  background: #2d2d2d;
+  color: #e3e3e3;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-secondary:hover {
+  background: #3d3d3d;
+  border-color: #4d4d4d;
+}
+
+.cycle-settings {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #2d2d2d;
+}
+
+.cycle-settings label {
+  display: block;
+  margin-bottom: 10px;
+  color: #e3e3e3;
+  font-weight: 500;
+}
+
+.cycle-settings select {
+  width: 100%;
+  padding: 12px;
+  background: #1a1a1a;
+  border: 1px solid #2d2d2d;
+  border-radius: 8px;
+  color: #e3e3e3;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.cycle-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.cycle-actions .btn,
+.cycle-actions .btn-secondary {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.current-month-summary {
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+  margin: 20px 0;
+}
+
+.period-info {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.period-info p {
+  color: #9ca3af;
+  font-size: 14px;
+  margin: 0;
+}
+
+.monthly-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.month-card {
+  background: #212121;
+  border: 1px solid #2d2d2d;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.month-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transition: left 0.5s;
+}
+
+.month-card:hover::before {
+  left: 100%;
+}
+
+.month-card:hover {
+  background: #2a2a2a;
+  border-color: #3d3d3d;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.month-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.month-period {
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.month-arrow {
+  color: #3b82f6;
+  font-size: 18px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.month-card:hover .month-arrow {
+  transform: translateX(5px);
+}
+
+.month-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.month-stat {
+  text-align: center;
+}
+
+.month-stat-label {
+  color: #9ca3af;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.month-stat-value {
+  color: #e3e3e3;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.month-stat-value.income {
+  color: #10b981;
+}
+
+.month-stat-value.expense {
+  color: #ef4444;
+}
+
+.month-stat-value.balance {
+  color: #3b82f6;
+}
+
+.transaction-count {
+  background: #2d2d2d;
+  color: #9ca3af;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .cycle-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .cycle-actions {
+    flex-direction: column;
+  }
+  
+  .cycle-actions button {
+    width: 100%;
+  }
+  
+  .month-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .month-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #1a1a1a;
+    border-radius: 8px;
+  }
+  
+  .month-stat-label {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  
+  .month-stat-value {
+    font-size: 18px;
+  }
+  
+  .transaction-count {
+    position: static;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  .month-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

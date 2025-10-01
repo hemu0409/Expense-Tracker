@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="user-header">
+            <h1><i class="fas fa-wallet"></i> Expense Tracker</h1>
+            <div class="user-info">
+                <button class="monthly-view-btn" onclick="window.location.href='monthly-view.html'" title="View Monthly Data">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Monthly Data</span>
+                </button>
+                <span id="user-name" class="user-name"></span>
+                <button id="logout-btn" class="logout-btn" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search transactions...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="income">Income</button>
+                <button class="filter-btn" data-filter="expense">Expense</button>
+            </div>
+        </div>
+        
+        <div class="balance">
+            <h3>Your Balance</h3>
+            <h2 id="balance">₹0.00</h2>
+        </div>
+
+        <div class="inc-exp-container">
+            <div>
+                <h4>Income</h4>
+                <p id="money-plus" class="money plus">+₹0.00</p>
+            </div>
+            <div>
+                <h4>Expense</h4>
+                <p id="money-minus" class="money minus">-₹0.00</p>
+            </div>
+        </div>
+
+        <div class="statistics">
+            <h3>Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-list"></i>
+                    <div>
+                        <p class="stat-label">Total Transactions</p>
+                        <p class="stat-value" id="total-transactions">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <p class="stat-label">Avg Transaction</p>
+                        <p class="stat-value" id="avg-transaction">₹0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-header">
+            <h3>History</h3>
+            <div class="history-actions">
+                <button class="icon-btn" id="export-btn" title="Export to CSV">
+                    <i class="fas fa-download"></i>
+                </button>
+                <button class="icon-btn" id="clear-all-btn" title="Clear All">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </div>
+        <ul id="list" class="list">
+        </ul>
+        <p id="no-transactions" class="no-transactions" style="display: none;">No transactions found</p>
+
+        <h3>Add new transaction</h3>
+        <form id="form">
+            <div class="form-control">
+                <label for="text">Description</label>
+                <input type="text" id="text" placeholder="Enter description..." required>
+            </div>
+            <div class="form-row">
+                <div class="form-control">
+                    <label for="amount">Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="form-control">
+                    <label for="type">Type</label>
+                    <select id="type" required>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-control">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="Food">🍔 Food</option>
+                        <option value="Groceries">🛒 Groceries</option>
+                        <option value="Utilities">🏠 Utilities</option>
+                        <option value="Health">💊 Health</option>
+                        <option value="Insurance">🛡️ Insurance</option>
+                        <option value="EMI">$ EMI</option>
+                        <option value="Credit">$ Credit</option>
+                        <option value="Investment">💹 Investment</option>
+                        <option value="Transport">🚗 Transport</option>
+                        <option value="Shopping">🛍️ Shopping</option>
+                        <option value="Entertainment">🎬 Entertainment</option>
+                        <option value="Bills">💡 Bills</option>
+                        <option value="Salary">💰 Salary</option>
+                        <option value="Gift">🎁 Gift</option>
+                        <option value="Loan">$ Loan</option>>
+                        <option value="Other">📌 Other</option>
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" required>
+                </div>
+            </div>
+            <button type="submit" class="btn"><i class="fas fa-plus"></i> Add transaction</button>
+        </form>
+        
+        <!-- Copyright Footer -->
+        <footer class="app-footer">
+            <p>© 2025 Hemanth.</p>
+        </footer>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Loading your data...</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <script src="firebase-config.js"></script>
+    
+        <script src="app.js"></script>
+</body>
+</html>
