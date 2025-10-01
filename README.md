@@ -285,7 +285,7 @@ This is a personal project. Feel free to fork and modify for your own use.
 
 <div align="center">
 
-**Built with ❤️ using Firebase and Vanilla JavaScript**
+**Built using Firebase and JavaScript**
 
 [⬆ Back to Top](#-expense-tracker)
 
